@@ -1,0 +1,21 @@
+certbot_certs:
+  - email: "bharat@stackhpc.com"
+    domains:
+      - "{{ harbor_hostname }}"
+certbot_create_if_missing: true
+certbot_create_method: "standalone"
+certbot_create_standalone_stop_services: ["docker"]
+
+harbor_hostname: "{{ inventory_hostname }}"
+harbor_url_protocol: "https"
+harbor_extras:
+  - trivy
+  - notary
+  - chartmuseum
+harbor_projects:
+  - project_name: "magnum"
+    is_public: "true"
+    content_trust: "false"
+    prevent_vul: "false"
+    severity: "high"
+    auto_scan: "true"

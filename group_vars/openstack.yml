@@ -1,0 +1,6 @@
+server_name: harbor
+server_network: demo-vxlan
+server_key_name: default
+server_flavor: general.v1.medium
+server_image: Ubuntu-Bionic-18.04-20190902
+server_fip: 128.232.227.190

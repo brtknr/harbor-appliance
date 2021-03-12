@@ -1,0 +1,28 @@
+- hosts: openstack
+  gather_facts: no
+  tasks:
+    - name: Provision openstack instance
+      os_server:
+        name: "{{ server_name }}"
+        network: "{{ server_network }}"
+        flavor: "{{ server_flavor }}"
+        image: "{{ server_image }}"
+        key_name: "{{ server_key_name }}"
+        floating_ips:
+          - "{{ server_fip }}"
+    
+- hosts: harbor
+  become: yes
+  vars:
+  tasks:
+    - name: Install package dependencies
+      apt:
+        name:
+          - python3-pip
+          - docker.io
+        state: latest
+        update_cache: yes
+    - name: Setup Certbot
+      include_role: name=geerlingguy.certbot
+    - name: Install Harbor
+      include_role: name=stackhpc.harbor
