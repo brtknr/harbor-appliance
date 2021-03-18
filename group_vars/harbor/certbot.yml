@@ -1,0 +1,9 @@
+certbot_certs:
+  - email: "bharat@stackhpc.com"
+    domains:
+      - "{{ harbor_hostname }}"
+certbot_create_if_missing: true
+certbot_create_method: "standalone"
+certbot_create_standalone_stop_services: ["docker.service"]
+certbot_staging: false
+certbot_auto_renew_user: root

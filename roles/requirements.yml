@@ -1,6 +1,6 @@
+- name: brtknr.certbot
+  src: https://github.com/brtknr/ansible-role-certbot
+  version: 3.1.0.1
 - name: stackhpc.harbor
   src: https://github.com/stackhpc/ansible-role-harbor
-  version: 0.1.0
-- name: geerlingguy.certbot
-  version: 3.1.0
-
+  version: 0.2.0

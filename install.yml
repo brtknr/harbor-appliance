@@ -12,17 +12,14 @@
           - "{{ server_fip }}"
     
 - hosts: harbor
-  become: yes
-  vars:
+  gather_facts: no
   tasks:
-    - name: Install package dependencies
-      apt:
-        name:
-          - python3-pip
-          - docker.io
-        state: latest
-        update_cache: yes
+    - name: Wait 600 seconds for target connection to become reachable/usable
+      wait_for_connection:
+
+- hosts: harbor
+  tasks:
     - name: Setup Certbot
-      include_role: name=geerlingguy.certbot
+      import_role: name=brtknr.certbot
     - name: Install Harbor
-      include_role: name=stackhpc.harbor
+      import_role: name=stackhpc.harbor
