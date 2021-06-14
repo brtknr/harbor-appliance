@@ -10,7 +10,8 @@
         key_name: "{{ server_key_name }}"
         floating_ips:
           - "{{ server_fip }}"
-    
+        volumes: "{{ server_volumes }}"
+
 - hosts: harbor
   gather_facts: no
   tasks:
@@ -21,5 +22,6 @@
   tasks:
     - name: Setup Certbot
       import_role: name=brtknr.certbot
+      when: false
     - name: Install Harbor
       import_role: name=stackhpc.harbor

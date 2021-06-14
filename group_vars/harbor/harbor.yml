@@ -2,11 +2,11 @@ harbor_data_dir: "/data"
 harbor_data_fstype: "ext4"
 harbor_data_dev: "/dev/vdb"
 harbor_hostname: "{{ inventory_hostname }}"
-harbor_url_protocol: "https"
+harbor_url_protocol: "http"
 harbor_extras:
   - "trivy"
-  - "notary"
   - "chartmuseum"
+harbor_config_reject: ["https"]
 harbor_projects:
   - project_name: "magnum"
     is_public: "true"

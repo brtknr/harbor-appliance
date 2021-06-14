@@ -1,2 +1,2 @@
 [openstack]
-localhost
+localhost ansible_connection=local

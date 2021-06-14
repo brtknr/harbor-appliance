@@ -1,6 +1,8 @@
 server_name: harbor
-server_network: demo-vxlan
-server_key_name: default
-server_flavor: general.v1.medium
-server_image: Ubuntu-Bionic-18.04-20190902
-server_fip: 128.232.227.190
+server_network: admin
+server_key_name: bharat
+server_flavor: m1a.large
+server_image: Ubuntu20.04
+server_fip: 192.168.30.30
+server_volumes:
+  - harbor
