@@ -4,6 +4,7 @@ certbot_certs:
       - "{{ harbor_hostname }}"
 certbot_create_if_missing: true
 certbot_create_method: "standalone"
-certbot_create_standalone_stop_services: ["docker.service"]
+certbot_create_standalone_stop_services: [""]
 certbot_staging: false
 certbot_auto_renew_user: root
+certbot_auto_renew_options: certbot renew --quiet --no-self-upgrade --pre-hook 'docker stop nginx' --post-hook 'docker start nginx'"

@@ -18,6 +18,7 @@
       wait_for_connection:
 
 - hosts: harbor
+  gather_facts: no
   tasks:
     - name: Setup Certbot
       import_role: name=brtknr.certbot
