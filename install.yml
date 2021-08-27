@@ -19,7 +19,7 @@
 
 - hosts: harbor
   tasks:
-    - name: Setup Certbot
-      import_role: name=brtknr.certbot
+    #- name: Setup Certbot
+    #  import_role: name=brtknr.certbot
     - name: Install Harbor
       import_role: name=stackhpc.harbor
